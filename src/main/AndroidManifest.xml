@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="co.vaango.attendance"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.READ_OWNER_DATA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_OWNER_DATA" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.usb.host" />
+
+    <application
+        android:name=".multibiometric.BiometricApplication"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".multibiometric.multimodal.FoodCountActivity"></activity>
+        <activity android:name=".multibiometric.multimodal.AttendanceViewActivity" /> <!-- <activity android:name=".multibiometric.multimodal.VisitsActivity"></activity> -->
+        <activity
+            android:name=".multibiometric.Features.ShowStudentList.StudentListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".multibiometric.multimodal.WelcomeBackActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".multibiometric.multimodal.FaceRecognitionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".multibiometric.multimodal.FlowFormActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".multibiometric.multimodal.WelcomeScreenActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".multibiometric.multimodal.MultiModalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".multibiometric.multimodal.DeviceOTPActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".app.InfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".app.DirectoryViewer"
+            android:screenOrientation="portrait" /> <!-- Licensing -->
+        <activity
+            android:name="com.neurotec.licensing.gui.ActivationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" /> <!-- Multimodal -->
+        <!-- <activity -->
+        <!-- android:name=".multibiometric.multimodal.MultiModalActivity" -->
+        <!-- android:hardwareAccelerated="false" -->
+        <!-- android:screenOrientation="portrait" -->
+        <!-- android:taskAffinity="com.neurotec.samples.multibiometric.multimodal"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
+        <activity
+            android:name=".multibiometric.multimodal.SplashActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen"
+            tools:ignore="InnerclassSeparator">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".multibiometric.multimodal.FaceActivity"
+            android:hardwareAccelerated="true"
+            android:label="@string/face_app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".multibiometric.multimodal.FingerActivity"
+            android:hardwareAccelerated="true"
+            android:label="@string/finger_app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".multibiometric.multimodal.IrisActivity"
+            android:hardwareAccelerated="true"
+            android:label="@string/iris_app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".multibiometric.multimodal.VoiceActivity"
+            android:hardwareAccelerated="true"
+            android:label="@string/voice_app_name"
+            android:screenOrientation="portrait" /> <!-- Preferences -->
+        <activity
+            android:name=".multibiometric.preferences.MultimodalPreferences"
+            android:parentActivityName=".multibiometric.multimodal.MultiModalActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="co.vaango.attendance.multibiometric.multimodal.MultiModalActivity" />
+        </activity>
+        <activity
+            android:name=".multibiometric.preferences.FacePreferences"
+            android:label="@string/face_app_name"
+            android:parentActivityName=".multibiometric.multimodal.FaceActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="co.vaango.attendance.multibiometric.multimodal.FaceActivity" />
+        </activity>
+        <activity
+            android:name=".multibiometric.preferences.FingerPreferences"
+            android:label="@string/finger_app_name"
+            android:parentActivityName=".multibiometric.multimodal.FingerActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="co.vaango.attendance.multibiometric.multimodal.FingerActivity" />
+        </activity>
+        <activity
+            android:name=".multibiometric.preferences.IrisPreferences"
+            android:label="@string/iris_app_name"
+            android:parentActivityName=".multibiometric.multimodal.IrisActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="co.vaango.attendance.multibiometric.multimodal.IrisActivity" />
+        </activity>
+        <activity
+            android:name=".multibiometric.preferences.VoicePreferences"
+            android:label="@string/voice_app_name"
+            android:parentActivityName=".multibiometric.multimodal.VoiceActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="co.vaango.attendance.multibiometric.multimodal.VoiceActivity" />
+        </activity>
+        <receiver android:name=".multibiometric.multimodal.NetworkMonitor">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name=".multibiometric.multimodal.SyncService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="true" />
+        <service
+            android:name=".multibiometric.multimodal.OfflineDataSyncService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="true" />
+    </application>
+
+</manifest>

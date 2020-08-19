@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: :neurotec-devices-irisscanners-iritech-irishield-android:@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../../Bin/Android/neurotec-devices-irisscanners-iritech-irishield-android.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../../Bin/Android/neurotec-devices-irisscanners-iritech-irishield-android-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

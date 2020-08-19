@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: :neurotec-biometrics-android:@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../../Bin/Android/neurotec-biometrics-android.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../../Bin/Android/neurotec-biometrics-android-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

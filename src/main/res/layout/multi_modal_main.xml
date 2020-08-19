@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:background="@color/white"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<LinearLayout
+		android:id="@+id/welcome_screen_ll"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:layout_gravity="center"
+		android:gravity="center"
+		android:background="@color/white" >
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="0.3"
+			android:layout_gravity="center_horizontal|center_vertical"
+			android:gravity="center_horizontal|center_vertical"
+			android:orientation="vertical">
+			<ImageView
+				android:id="@+id/company_logo"
+				android:layout_width="180dp"
+				android:layout_height="80dp"
+				android:scaleType = "centerCrop"
+				android:layout_gravity="center"
+				android:contentDescription="-"
+				android:src="@drawable/compass_logo"
+				/>
+			<TextView
+				android:id="@+id/welcome_text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="FOOD IS OUR PASSION"
+				android:layout_marginTop="15dp"
+				android:textColor="@color/black"
+				android:textSize="24sp"
+				android:layout_gravity="center"
+				android:gravity="center"/>
+		</LinearLayout>
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="0.5"
+			android:layout_gravity="center_horizontal|center_vertical"
+			android:gravity="center_horizontal|center_vertical"
+			android:paddingTop="20dp"
+			android:paddingBottom="20dp">
+			<ImageView
+				android:id="@+id/welcome_image"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:scaleType="fitCenter"
+				android:adjustViewBounds="true"
+				android:layout_gravity="center"
+				android:src="@drawable/attendance_img"
+				android:contentDescription="-" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="0.2"
+			android:orientation="vertical"
+			android:layout_gravity="center_horizontal|center_vertical"
+			android:gravity="center_horizontal|center_vertical">
+
+			<pl.droidsonroids.gif.GifImageView
+				android:layout_width="50dp"
+				android:layout_height="50dp"
+				android:src="@drawable/clickhand"
+				/>
+
+			<TextView
+				android:id="@+id/continue_txt"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="Touch to continue"
+				android:padding="10dp"
+				android:textColor="@color/black"
+				android:textSize="18sp"
+				android:layout_gravity="center"
+				android:gravity="center"/>
+		</LinearLayout>
+	</LinearLayout>
+
+	<LinearLayout
+		android:visibility="gone"
+		android:background="@color/app_bg"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:orientation="horizontal"
+		tools:ignore="Suspicious0dp">
+
+		<EditText
+			android:id="@+id/subject_id"
+			android:hint="Subject ID"
+			android:focusableInTouchMode="true"
+			android:gravity="center"
+			android:textColorHint="@color/md_blue_grey_500"
+			android:background="@color/md_teal_100"
+			android:layout_marginTop="10dip"
+			android:layout_marginLeft="10dip"
+			android:layout_marginRight="10dip"
+			android:layout_width="match_parent"
+			android:layout_height="25dip"
+			android:inputType="textVisiblePassword"
+			android:visibility="invisible"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:visibility="gone"
+		android:background="@color/app_bg"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:layout_gravity="center"
+		android:gravity="center">
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_gravity="center"
+			android:gravity="center">
+
+			<RelativeLayout
+				android:layout_marginBottom ="15dip"
+				android:layout_marginTop="15dip"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:layout_gravity="center">
+
+				<ImageView
+					android:id="@+id/face"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:adjustViewBounds="true"
+					android:src="@drawable/attendance"
+					android:contentDescription="-" />
+				<TextView
+					android:id="@+id/face_counter"
+					android:text="0"
+					android:textColor="@color/white"
+					android:textSize="30dip"
+					android:paddingLeft="10dip"
+					android:paddingTop="5dip"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:visibility="invisible"/>
+
+			</RelativeLayout>
+
+		</LinearLayout>
+
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingBottom="20dip"
+			android:layout_gravity="bottom"
+			android:orientation="vertical"
+			android:visibility="visible">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal">
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Attendance"
+					android:textSize="24sp"
+					android:textColor="@color/white"
+					android:padding="20dp"
+					android:gravity="center_horizontal"
+					android:id="@+id/multimodal_button_continue"
+					/>
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingBottom="20dip"
+			android:layout_gravity="bottom"
+			android:orientation="vertical"
+			android:visibility="gone">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal">
+				<Button
+					android:text="Enroll"
+					android:background="@drawable/round_button"
+					android:textColor="@color/white"
+					android:layout_marginEnd ="10dip"
+					android:layout_marginTop="10dip"
+					android:layout_marginLeft="20dip"
+					android:layout_marginRight="10dip"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/multimodal_button_enroll"
+					android:layout_weight="1"/>
+
+				<Button
+					android:text="Identify"
+					android:background="@drawable/round_button"
+					android:textColor="@color/white"
+					android:layout_marginEnd ="10dip"
+					android:layout_marginTop="10dip"
+					android:layout_marginLeft="10dip"
+					android:layout_marginRight="20dip"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/multimodal_button_identify"
+					android:layout_weight="1"/>
+
+			</LinearLayout>
+
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>

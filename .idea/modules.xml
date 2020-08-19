@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/scheck-multibiometric.iml" filepath="$PROJECT_DIR$/scheck-multibiometric.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../Common/Android/scheck-utils/scheck-utils.iml" filepath="$PROJECT_DIR$/../../../Common/Android/scheck-utils/scheck-utils.iml" />
+    </modules>
+  </component>
+</project>

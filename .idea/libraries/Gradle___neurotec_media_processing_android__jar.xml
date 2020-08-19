@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: :neurotec-media-processing-android:@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../../Bin/Android/neurotec-media-processing-android.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../../Bin/Android/neurotec-media-processing-android-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

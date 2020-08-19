@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: :neurotec-licensing-gui-android:@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b6a32cb0e6932c663d1302694e3ff511/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b6a32cb0e6932c663d1302694e3ff511/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../../Bin/Android/neurotec-licensing-gui-android-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

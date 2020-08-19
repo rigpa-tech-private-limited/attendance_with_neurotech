@@ -1,0 +1,3 @@
+rootProject.name = 'scheck-multibiometric'
+include 'scheck-utils'
+project(':scheck-utils').projectDir = new File("../../../Common/Android/scheck-utils")

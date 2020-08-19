@@ -1,0 +1,160 @@
+description = "Multibiometric Sample"
+
+apply plugin: 'com.android.application'
+
+def productRootDir = "../../../.."
+def productBinDir = new File(productRootDir, "Bin")
+def productBinAndroidDir = new File(productBinDir, "Android")
+def productLibAndroidDir = new File(productRootDir, "Lib/Android")
+def archUsed = "arm64-v8a,armeabi-v7a,x86"
+
+def usedNdfList = ["FacesDetect45.ndf",
+                   "FacesDetect180.ndf",
+                   "FacesDetectSegmentsAge.ndf",
+                   "FacesDetectSegmentsEmotions.ndf",
+                   "FacesDetectSegmentsAttributes.ndf",
+                   "FacesDetectSegmentsOrientation.ndf",
+                   "FacesDetectSegmentsFeaturePointsTrack.ndf",
+                   "FacesDetectSegmentsLiveness.ndf",
+                   "FacesDetect90.ndf",
+                   "FacesDetectSegmentsFeaturePointsDetect.ndf",
+                   "FacesDetectSegmentsOrientation90.ndf",
+                   "FacesCreateTemplateSmall.ndf",
+                   "FacesCreateTemplateQuality.ndf"]
+
+buildscript {
+    System.properties['com.android.build.gradle.overrideVersionCheck'] = 'true'
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.1'
+    }
+}
+
+android {
+    compileSdkVersion 28
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 28
+
+        ndk {
+            abiFilters 'x86', 'armeabi-v7a', 'arm64-v8a'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_6
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:deprecation"
+    }
+}
+
+clean {
+    delete fileTree(dir: productBinAndroidDir, include: "${"multibiometric-sample"}*.*")
+}
+
+task deleteTemporaryFiles(type: Delete) {
+    for (String file : usedNdfList) {
+        delete "${android.sourceSets.main.assets.srcDirs[0]}/data/${file}.jet"
+    }
+    delete "${android.sourceSets.main.jniLibs.srcDirs[0]}"
+}
+
+task prepareNdfFiles(type: Copy) {
+    from "${productBinDir}/Data"
+    includes = usedNdfList
+    rename { String fileName ->
+        fileName.replace('.ndf', '.ndf.jet')
+    }
+    into "${android.sourceSets.main.assets.srcDirs[0]}/data"
+}
+
+int counter = 1
+archUsed.split(',').each {
+    String srcDir = "${productLibAndroidDir}/${it}"
+    String dstDir = "${android.sourceSets.main.jniLibs.srcDirs[0]}/${it}"
+    task "prepareNativeLibs$counter"(type: Copy) {
+        from srcDir
+        exclude "**/libgstreamer_android.so"
+        into dstDir
+        dependsOn(prepareNdfFiles)
+    }
+    tasks.preBuild.dependsOn("prepareNativeLibs$counter")
+    counter++
+}
+
+//task publishApk(type: Copy) {
+//	from "${project.buildDir}/outputs/apk/debug"
+//	include "${project.archivesBaseName}-debug.apk"
+//	rename "${project.archivesBaseName}-debug.apk", "${project.archivesBaseName}.apk"
+//	into productBinAndroidDir
+//}
+
+clean.dependsOn(deleteTemporaryFiles)
+prepareNdfFiles.dependsOn(clean)
+//build.finalizedBy(publishApk)
+
+dependencies {
+    implementation ":neurotec-gui-android"
+    implementation ":neurotec-media-processing-android"
+    implementation ":neurotec-biometrics-android"
+    implementation ":neurotec-biometrics-client-android"
+    implementation ":neurotec-devices-fscanners-nitgen-android"
+    implementation ":neurotec-devices-fscanners-aratek-android"
+    implementation ":neurotec-devices-fscanners-aratek-trustfinger-android"
+    implementation ":neurotec-devices-fscanners-suprema-biomini-android"
+    implementation ":neurotec-devices-fscanners-bluefin-android"
+    implementation ":neurotec-devices-multimodal-credenceid-android"
+    implementation ":neurotec-devices-fscanners-digitalpersona-uareu-android"
+    implementation ":neurotec-devices-fscanners-secugen-android"
+    implementation ":neurotec-devices-fscanners-futronic-android"
+    implementation ":neurotec-devices-fscanners-integratedbiometrics-android"
+    implementation ":neurotec-devices-fscanners-smufsbio-android"
+    implementation ":neurotec-devices-fscanners-startek-android"
+    implementation ":neurotec-devices-fscanners-nextbiometrics-android"
+    implementation ":neurotec-devices-fscanners-greenbit-android"
+    implementation ":neurotec-devices-fscanners-zkteco-android"
+    implementation ":neurotec-devices-irisscanners-iritech-irishield-android"
+    implementation ":neurotec-devices-irisscanners-mantra-android"
+    implementation ":neurotec-devices-media-android"
+    implementation ":neurotec-biometrics-android"
+    implementation ":neurotec-devices-android"
+    implementation(name: 'neurotec-biometrics-gui-android', ext: 'aar')
+    implementation project(':scheck-utils')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.android.volley:volley:1.1.0'
+    implementation 'com.orhanobut:logger:2.2.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.cdflynn:checkview:v1.1'
+    implementation 'com.google.code.gson:gson:2.8.5'
+}
+
+repositories {
+    mavenLocal()
+    google()
+    jcenter()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+    flatDir {
+        dirs "${productBinAndroidDir}/"
+    }
+}
